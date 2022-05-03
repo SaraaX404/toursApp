@@ -20,6 +20,7 @@ import Spinner from "../component/Spinner";
 import { toast } from "react-toastify";
 
 const Dashboard = () => {
+  //get paragraph as a parameter and check it it's length greater than 45. if is is short it to 45 words and add readmore...
   const excerpt = (str) => {
     if (str.length > 45) {
       str = str.substring(0, 45) + " ...";

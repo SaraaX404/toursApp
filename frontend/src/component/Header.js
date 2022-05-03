@@ -46,7 +46,8 @@ const Header = () => {
   const handleSubmit = (e) =>{
     e.preventDefault()
     if(search) {
-      dispatch(searchTours(search))
+      //dispatch search tours action and pass the search and current page values
+      dispatch(searchTours({search, currentPage}))
       setSearch("")
       navigate(`/tours/search?searchQuery=${search}`)
 

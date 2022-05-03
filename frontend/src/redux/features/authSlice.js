@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../api";
 
+//google sign in
 export const googleSignIn = createAsyncThunk(
   "auth/googleLogin",
   async ({ result, navigate, toast }, { rejectWithValue }) => {
@@ -14,7 +15,7 @@ export const googleSignIn = createAsyncThunk(
     }
   }
 );
-
+//login
 export const login = createAsyncThunk(
   "auth/login",
 
@@ -29,7 +30,7 @@ export const login = createAsyncThunk(
     }
   }
 );
-
+//register
 export const register = createAsyncThunk(
   "auth/register",
   async ({ formValue, navigate, toast }, { rejectWithValue }) => {

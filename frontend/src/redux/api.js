@@ -23,7 +23,7 @@ export const deleteTour = (id) => API.delete(`/tour/${id}`);
 export const updateTour = ({ updatedTourData, id }) =>
   API.patch(`/tour/${id}`, updatedTourData);
 export const getToursByUser = () => API.post(`/tour/userTours`);
-export const getToursBySearch = (search) => API.post(`/tour/search?search=${search}`);
+export const getToursBySearch = ({search, currentPage}) => API.post(`/tour/search?search=${search}&page=${currentPage}`);
 export const getToursByTag = (id) => API.get(`/tour/taggable/${id}`);
 export const getRelatedTours = (tags) => API.post(`/tour/related`, {tags:tags});
 export const likeATour = (id) => API.patch(`/tour/like/${id}`)

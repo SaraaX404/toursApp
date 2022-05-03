@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import AuthReducer from "./features/authSlice";
 import TourReducer from "./features/tourSlice";
-
+//configure store
 export default configureStore({
   reducer: {
     auth: AuthReducer,

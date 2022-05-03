@@ -11,6 +11,8 @@ import { Link, useParams } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {likeTour} from "../redux/features/tourSlice";
 
+
+//create like component
 const Like = ({likes, userID, handleClick}) =>{
   if(likes.find((like)=> like==userID)){
   return (

@@ -96,13 +96,19 @@ exports.searchTours = async (req,res)=>{
   const {search} = req.query
   const title = new RegExp(search, 'i')
   try{
-
-    const tour = await Tour.find({title:title})
-    console.log(tour)
-    res.status(200).send(tour)
-
-  }catch (err){
-    res.status(500).send(err.message)
+    const {page} = req.query
+    const limit = 6
+    const startIndex = Number(page - 1) * limit
+    const total = await Tour.countDocuments({})
+    const tours = await Tour.find({title:title}).limit(limit).skip(startIndex)
+    res.status(200).send({
+      data:tours,
+      currentPage:Number(page),
+      totalTours:total,
+      numberOfPages:Math.ceil(total/limit)
+    })
+  }catch(err){
+    res.status(500).send(err)
   }
 }
 

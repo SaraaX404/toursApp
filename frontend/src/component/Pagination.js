@@ -1,8 +1,9 @@
 import react from 'react'
 import {MDBPagination, MDBPaginationItem, MDBBtn} from 'mdb-react-ui-kit'
 const Pagination = ({setCurrentPage, numberOfPages, currentPage, dispatch, tours}) =>{
+    //check if the number of pages and current page is one,
     const renderPagination = () =>{
-        if((numberOfPages === currentPage && currentPage === 1) ){
+        if((numberOfPages === currentPage && currentPage === 1) && tours.length === 0  ){
             return null
         }
 

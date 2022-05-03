@@ -14,6 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { register } from "../redux/features/authSlice";
 
+
+//initial state
 const initialState = {
   firstName: "",
   lastName: "",
@@ -44,7 +46,7 @@ const Login = () => {
     if (email && password && firstName && lastName)
       dispatch(register({ formValue, navigate, toast }));
   };
-
+  //store form data in initial state using on change function
   const onInputChange = (e) => {
     let { name, value } = e.target;
     //set values to the use state
@@ -58,7 +60,7 @@ const Login = () => {
         padding: "15px",
         maxWidth: "450px",
         alignContent: "center",
-        margin: "120px",
+
       }}
     >
       <MDBCard alignment="center">

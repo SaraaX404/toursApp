@@ -31,9 +31,9 @@ export const getTours = createAsyncThunk(
 
 export const searchTours = createAsyncThunk(
     "tour/searchTours",
-    async (searchQuery, { rejectWithValue }) => {
+    async ({search,currentPage}, { rejectWithValue }) => {
       try {
-        const response = await api.getToursBySearch(searchQuery);
+        const response = await api.getToursBySearch({search, currentPage});
 
         return response.data;
       } catch (error) {
@@ -242,8 +242,10 @@ const tourSlice = createSlice({
     },
     [searchTours.fulfilled]: (state, action) => {
       state.loading = false;
-      console.log(action.payload)
-      state.tours = action.payload;
+      console.log("working");
+      state.tours = action.payload.data;
+      state.numberOfPages = action.payload.numberOfPages
+      state.currentPage = action.payload.currentPage
     },
     [searchTours.rejected]: (state, action) => {
       state.error = action.payload.message;
